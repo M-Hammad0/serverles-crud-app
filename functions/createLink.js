@@ -15,6 +15,7 @@ exports.handler = async (event) => {
 
     // get data from frontend
   const { name, url, description } = JSON.parse(event.body);
+  //parse data form frontend to strings
 
   try {
     const { data: {data: {createLink}} } = await axios({
@@ -35,7 +36,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(createLink),
+      body: JSON.stringify(createLink), // stringyfy json to send to faunadb
     };
   } catch (error) {
     console.log(error);
