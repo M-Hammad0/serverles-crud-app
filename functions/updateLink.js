@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     }
 
   // get data from frontend
-  const { _id:id, name, url, description } = JSON.parse(event.body);
+  const { id, name, url, description } = JSON.parse(event.body);
   //parse data form frontend to strings
   // rename _id to id then pass to variable 
 
