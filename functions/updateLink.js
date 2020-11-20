@@ -22,16 +22,12 @@ exports.handler = async (event) => {
     }
 
   // get data from frontend
-  const { id, name, url, description } = JSON.parse(event.body);
+  const {data: {id, name, url, description} } = JSON.parse(event.body);
   //parse data form frontend to strings
   // rename _id to id then pass to variable 
 
   try {
-    const {
-      data: {
-        data: { updateLink },
-      },
-    } = await axios({
+    const {data} = await axios({
       url: "https://graphql.fauna.com/graphql",
       method: "POST",
       headers: {
@@ -50,7 +46,7 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      body: JSON.stringify(updateLink), // stringyfy json to send to faunadb
+      body: JSON.stringify(data), // stringyfy json to send to faunadb
     };
   } catch (error) {
     console.log(error);
