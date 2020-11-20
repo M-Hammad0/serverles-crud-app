@@ -15,7 +15,7 @@ exports.handler = async (event) => {
     }
     `;
 
-  const { data } = await axios({
+  const { data: {data} } = await axios({
     url: "https://graphql.fauna.com/graphql", // url for all is same secret determines db
     method: "POST",
     headers: {
@@ -29,6 +29,6 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(data),
+    body: JSON.stringify(data.allLinks),
   };
 };
