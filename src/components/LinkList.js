@@ -1,18 +1,20 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import {getLinks} from '../Api'
 function LinkList() {
+
   const [Links, setLinks] = useState([]);
 
-  const getLinks = async () => {
-    const { data } = await axios.get("/.netlify/functions/getLinks");
-    setLinks(data.data);
-  };
-
+  const fetchList = async() => {
+    const result  = await getLinks()
+    setLinks(result.data)
+  }
   useEffect(() => {
-    getLinks();
+    fetchList()
   }, []);
+
+  
 
   const deleteLink = async (event) => {
     await axios.delete("/.netlify/functions/deleteLink", {
@@ -20,7 +22,7 @@ function LinkList() {
         id: event.target.value,
       },
     });
-    getLinks(); // refresh list after deleting
+    fetchList(); // refresh list after deleting
   };
 
   return (
@@ -28,12 +30,15 @@ function LinkList() {
       {Links &&
         Links.map((i) => (
           <div className="box" style={{ padding: "10px" }} key={i._id}>
-            <p>{i._id}</p>
-            <p>{i.url}</p>
-            <p>{i.description}</p>
+          <ul className='list'>
+            <li>Name: {i.name}</li>
+            <li>URL: <a target="_blank" rel = "noopener noreferrer" href={i.url}>{i.url}</a></li>
+            <li>Description: {i.description}</li>
+            <li>id: {i._id}</li>
+          </ul>
             <div className="row">
             </div>
-            <button className="btn btn-danger" value={i._id} onClick={deleteLink}>
+            <button style={{marginLeft: "40px"}} className="btn btn-danger" value={i._id} onClick={deleteLink}>
               delete
             </button>
             <hr />

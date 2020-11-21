@@ -1,4 +1,23 @@
 body {
-    background-color: black;
+    background-color:#222831;
     color: #fff
+}
+
+.list {
+    list-style-type: none;
+}
+
+.root {
+    margin: 10%
+}
+
+h1 {
+    color: #f05454;
+    margin: auto;
+}
+
+.h1 {
+    width: 50%;
+    margin: auto;
+    margin-top: 3%;
 }

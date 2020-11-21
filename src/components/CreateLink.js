@@ -44,7 +44,7 @@ const CreateLink = () => {
     <form onSubmit={handleSubmit} autoComplete="off">
     <div className="form-group">
           <label>ID</label>
-          <input type="text" placeholder="Leave blank when creating" className="form-control" id="id" value={id} onChange={(e) => setid(e.target.value)} />
+          <input type="text" placeholder="use id for updating fields" className="form-control" id="id" value={id} onChange={(e) => setid(e.target.value)} />
         </div>
         <div className="form-group">
           <label>Name</label>
@@ -58,10 +58,10 @@ const CreateLink = () => {
           <label>description</label>
           <input type="text" className="form-control" id="descriptioncription" value={description} onChange={(e) => setdescription(e.target.value)} />
         </div>
-        <button  type="submit" value="create" onClick={e => setCheck(e.target.value)} className="btn btn-primary">
+        <button style={{marginRight: "20px"}}  type="submit" value="create" onClick={e => setCheck(e.target.value)} className="btn btn-primary">
           Create
         </button>
-        <button  type="submit" value="update" onClick={e => setCheck(e.target.value)} className="btn btn-primary">
+        <button  type="submit" value="update" onClick={e => setCheck(e.target.value)} className="btn btn-warning">
           Update
         </button>
       </form>
