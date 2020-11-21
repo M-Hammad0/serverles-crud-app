@@ -7,7 +7,7 @@ function App() {
     <>
     <div className="h1"><h1>Serverless CRUD App with FaundaDB and Netlify</h1></div>
     
-      <div className="row root">
+      <div className="row root ">
         <div className="col-lg-6 col-md-6">
           <LinkList />
         </div>
