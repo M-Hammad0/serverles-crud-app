@@ -5,7 +5,7 @@ import CreateLink from "./components/CreateLink";
 function App() {
   return (
     <>
-    <div className="h1"><h1>Serverless CRUD App with FaundaDB and Netlify</h1></div>
+    <div className="h1"><h1>Serverless CRUD App with FaundaDB and Netlify Functions</h1></div>
     
       <div className="row root ">
         <div className="col-lg-6 col-md-6">
